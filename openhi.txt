@@ -1,0 +1,88 @@
+
+
+#-----------------------------------#
+0. git clone https://gitlab.com/BioAI/OpenHI.git
+1. pip install -r requirements.txt
+
+************
+sudo apt-get update
+sudo apt-get install mysql-server
+service mysql status
+#sudo service mysql start
+sudo mysql -u root
+# CREATE DATABASE Demo;
+SHOW DATABASES;
+USE mysql;
+SELECT User, Host, plugin FROM mysql.user;
+UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+FLUSH PRIVILEGES;
+exit;
+
+# $ service mysql restart
+
+INSTALL PLUGIN validate_password SONAME 'validate_password.so';
+SHOW VARIABLES LIKE 'validate_password%';
+SET GLOBAL validate_password_length = 6;
+SET GLOBAL validate_password_number_count = 0;
+SET GLOBAL validate_password_policy=LOW;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+FLUSH PRIVILEGES;
+quit
+
+***** Modify code in app.py**********
+-line 11
+-line 80 # graph = tf.get_default_graph()
+-line 310
+-line 365
+global graph 
+
+**********************************
+sudo apt-get install openslide-tools 
+sudo apt-get install python-openslide 
+pip install openslide-python
+***********************************
+***** Modify code in OpenHI_conf_example.ini**********
+-line 19 
+slide_id = 1
+-openhi/legacy/anno_img.py
+line 189
+
+**********************************
+
+2. mysql -u root -p mysql < /home/siri/OpenHI/module/legacy/mysql/data_model_4-1.sql 
+ # python setup.py install
+3. python setup.py develop
+4. python /home/siri/OpenHI/module/legacy/mysql/data_model_4-1_fill_info.py
+5. pip install tensorflow
+6. cd module/legacy/
+7. python app.py
+
+
+################################
+
+move file
+
+rm /home/siri/OpenHI/framework_src/manifest.txt
+rm /home/siri/OpenHI/module/legacy/app.py
+rm /home/siri/OpenHI/requirements.txt
+rm /home/siri/OpenHI/module/legacy/mysql/data_model_4-1_fill_info.py
+rm /home/siri/OpenHI/module/legacy/segmentation_algorithm.py
+rm /home/siri/OpenHI/module/legacy/static/OpenHI_conf_example.ini
+rm /home/siri/OpenHI/openhi/legacy/anno_img.py
+rm /home/siri/OpenHI/openhi/legacy/anno_web.py
+
+---------------------------
+1. scp requirements.txt siri@13.76.248.254:/home/siri/OpenHI/.
+2. scp framework_src/manifest.txt siri@13.76.248.254:/home/siri/OpenHI/framework_src/.
+3. scp module/legacy/app.py siri@13.76.248.254:/home/siri/OpenHI/module/legacy/.
+4. scp module/legacy/mysql/data_model_4-1_fill_info.py siri@13.76.248.254:/home/siri/OpenHI/module/legacy/mysql/.
+5. scp module/legacy/segmentation_algorithm.py siri@13.76.248.254:/home/siri/OpenHI/module/legacy/.
+6. scp module/legacy/static/OpenHI_conf_example.ini siri@13.76.248.254:/home/siri/OpenHI/module/legacy/static/.
+7. scp openhi/legacy/anno_img.py siri@13.76.248.254:/home/siri/OpenHI/openhi/legacy/.
+8. scp openhi/legacy/anno_web.py siri@13.76.248.254:/home/siri/OpenHI/openhi/legacy/.
+9. scp -r framework_src/data/1d5ad259-f5b4-4905-a68e-2c770a19287e siri@13.76.248.254:/home/siri/OpenHI/framework_src/data/.
+10. scp -r framework_src/data/1ee0fdf0-da15-4168-b5ad-7da4bb7c80ef siri@13.76.248.254:/home/siri/OpenHI/framework_src/data/.
+11. scp -r framework_src/data/eb25474f-e249-4f39-9339-b8f5c1690610 siri@13.76.248.254:/home/siri/OpenHI/framework_src/data/.
+
+
+
