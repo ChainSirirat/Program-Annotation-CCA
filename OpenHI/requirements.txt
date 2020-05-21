@@ -1,0 +1,27 @@
+openslide-python
+pandas
+opencv-python
+numpy
+flask
+Flask-WTF
+mysql-connector
+scikit-image
+paramiko
+xmltodict
+tqdm
+
+# Documentation
+sphinx
+sphinx_rtd_theme
+recommonmark
+m2r
+
+# libMI and MMSI for interoperable file format
+libmi
+mmsi
+torch
+torchvision
+pyvips
+segmentation_models==0.2.1
+tensorflow==1.12
+Keras==2.2.4
