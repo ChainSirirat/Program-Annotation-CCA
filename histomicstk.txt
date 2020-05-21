@@ -1,0 +1,44 @@
+
+**** Open port 8080 for run Histomics TK
+
+
+ตรวจสอบ python  (ใช้ version 3.x.x)  
+$python -V (ถ้าตัว default เป็น version 2.7.x ให้เปลี่ยน default เป็น 3.x.x)
+(sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10)
+
+sudo apt-get update
+
+sudo apt-get install git docker.io python-pip
+
+sudo usermod -aG docker `id -u -n`
+
+newgrp docker
+
+sudo pip install docker
+
+sudo file /lib/systemd/system/docker.service
+sudo file /lib/systemd/system/docker.socket
+sudo systemctl unmask docker.service
+sudo systemctl unmask docker.socket
+sudo systemctl start docker.service
+#sudo systemctl status docker
+
+pip list | grep docker
+pip install --upgrade docker
+
+git clone https://github.com/DigitalSlideArchive/digital_slide_archive
+
+cd digital_slide_archive/ansible
+
+git pull
+
+python deploy_docker.py pull
+
+python deploy_docker.py rm
+
+python deploy_docker.py start
+
+RUN port 8080 
+----------------------- For test
+longin : admin
+Password : password
