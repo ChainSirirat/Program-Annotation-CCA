@@ -1,0 +1,11 @@
+Create docker and Share
+
+mkdir data1
+echo "Docker valume share"> data1/file1.txt
+docker run -v $PWD/data1:/opt/data1 -it debian /bin/bash
+-----------------------------------
+On docker now
+
+cat /opt/data1/file1
+
+-----------------------------------
