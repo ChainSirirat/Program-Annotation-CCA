@@ -1,0 +1,19 @@
+mongodump
+
+-----------------------
+docker exec -it <containID or name> bash
+cd usr/bin
+mongodump
+-----------------------
+#check folder dump
+
+cd dump
+ls
+exit
+exit
+----------------------------
+# copy folder /dump on host
+
+docker cp <containID or name>:/usr/bin/dump .
+
+
