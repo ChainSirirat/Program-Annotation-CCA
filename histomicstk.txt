@@ -23,8 +23,14 @@ sudo systemctl unmask docker.socket
 sudo systemctl start docker.service
 #sudo systemctl status docker
 
-pip list | grep docker
-pip install --upgrade docker
+sudo pip list | grep docker
+sudo pip install --upgrade docker
+
+**************************************
+pip uninstall docker-py
+pip uninstall docker
+pip install --ignore-installed docker-py
+******************************************
 
 git clone https://github.com/DigitalSlideArchive/digital_slide_archive
 
@@ -42,3 +48,16 @@ RUN port 8080
 ----------------------- For test
 longin : admin
 Password : password
+
+-----------------------------------
+
+pip uninstall docker-py
+pip uninstall docker
+pip install --ignore-installed docker-py
+
+-----------------------------------
+
+sudo apt install python-pip
+
+---------------------------------------
+
