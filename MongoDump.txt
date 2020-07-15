@@ -10,10 +10,14 @@ mongodump
 cd dump
 ls
 exit
-exit
 ----------------------------
 # copy folder /dump on host
 
 docker cp <containID or name>:/usr/bin/dump .
 
+----------------------------------------------------
+****************************************************
 
+#mongorestore
+
+mongorestore dump
