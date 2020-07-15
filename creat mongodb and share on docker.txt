@@ -1,0 +1,21 @@
+MongoDB inside Docker Container
+
+sudo apt install python-pip
+
+docker images
+docker pull mongo:latest
+mkdir mongodb-share
+cd mongodb-share
+docker run -d -p 2717:27017 -v ~/mongodb-share:/data/db --name mymongo mongo:latest
+docker ps
+docker exec -it <containerID or name> bash
+mongo
+show dbs
+use test
+db.user.insert({"name":"Faii Ja"})
+db.user.find()
+exit
+exit
+mongo localhost:2717
+ls
+
